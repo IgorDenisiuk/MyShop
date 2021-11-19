@@ -9,9 +9,33 @@ import SwiftUI
 
 struct RootView: View {
     var body: some View {
-        Image("shopSmall")
+        TabView {
+            MainView()
+                .tabItem {
+                    Image(systemName: "house.circle.fill")
+                    Text("Главная")
+                }
+            
+            SearchView()
+                .tabItem {
+                    Image(systemName: "magnifyingglass.circle.fill")
+                    Text("Каталог")
+                }
+            
+            CartView()
+                .tabItem {
+                    Image(systemName: "cart.circle.fill")
+                    Text("Корзина")
+                }
+            
+            AccountView()
+                .tabItem {
+                    Image(systemName: "person.crop.circle.fill")
+                    Text("Профиль")
+                }
+        }
+        .accentColor(Color("brandColor"))
     }
-
 }
 
 struct RootView_Previews: PreviewProvider {
