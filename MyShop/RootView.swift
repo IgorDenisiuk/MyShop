@@ -16,7 +16,7 @@ struct RootView: View {
                     Text("Главная")
                 }
             
-            SearchView()
+            CatalogueView()
                 .tabItem {
                     Image(systemName: "magnifyingglass.circle.fill")
                     Text("Каталог")
