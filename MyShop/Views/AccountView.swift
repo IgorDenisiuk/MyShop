@@ -9,7 +9,14 @@ import SwiftUI
 
 struct AccountView: View {
     var body: some View {
-        Text("AccountView")
+        NavigationView {
+            NavigationLink(destination: LoginView()) {
+                
+                Text("Log In")
+                    .modifier(CustomButtonModifier())
+            }
+            .navigationBarTitle("Account")
+        }
     }
 }
 
