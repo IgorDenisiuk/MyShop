@@ -15,25 +15,20 @@ struct CatalogueView: View {
     @State private var isSearching = false
     
     var body: some View {
-        ZStack {
-            Color("brandColorGray")
-                .ignoresSafeArea()
-            
-            NavigationView {
-                VStack {
-                    SearchBar(searchText: $searchText, isSearching: $isSearching)
-                    
-                    Spacer()
-                    
-                    List {
-                        ForEach ((catalogue).filter({ "\($0)".contains(searchText) || searchText.isEmpty}), id: \.self) { item in
-                            Text(item)
-                        }
+        NavigationView {
+            VStack {
+                SearchBar(searchText: $searchText, isSearching: $isSearching)
+                
+                Spacer()
+                
+                List {
+                    ForEach ((catalogue).filter({ "\($0)".contains(searchText) || searchText.isEmpty}), id: \.self) { item in
+                        Text(item)
                     }
-                    .listStyle(GroupedListStyle())
                 }
-                .navigationTitle("Catalogue")
+                .listStyle(GroupedListStyle())
             }
+            .navigationTitle("Catalogue")
         }
     }
 }

@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct CartView: View {
+    
+    @EnvironmentObject var items: CartViewModel
+    
     var body: some View {
-        Text("CartView")
+        NavigationView {
+            List {
+                ForEach(items.items) { item in
+                    
+                }
+            }
+            .navigationBarTitle("Cart")
+        }
     }
 }
 

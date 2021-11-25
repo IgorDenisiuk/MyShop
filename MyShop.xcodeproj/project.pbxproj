@@ -17,6 +17,12 @@
 		8660C5A0274D2A6600865F81 /* CustomTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660C59F274D2A6600865F81 /* CustomTextfield.swift */; };
 		8660C5A2274D2AF200865F81 /* CustomButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660C5A1274D2AF200865F81 /* CustomButtonModifier.swift */; };
 		8660C5A4274D2BBF00865F81 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660C5A3274D2BBF00865F81 /* AuthenticationView.swift */; };
+		8660C5A7274E8C9E00865F81 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660C5A6274E8C9E00865F81 /* ItemModel.swift */; };
+		8660C5AA274E8EA600865F81 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660C5A9274E8EA600865F81 /* CartViewModel.swift */; };
+		8660C5AC274F9B5900865F81 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660C5AB274F9B5900865F81 /* ItemDetailView.swift */; };
+		8660C5AE274FA1E900865F81 /* xMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660C5AD274FA1E900865F81 /* xMarkButton.swift */; };
+		8660C5B0274FA39600865F81 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660C5AF274FA39600865F81 /* AddButton.swift */; };
+		8660C5B2274FA5AC00865F81 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660C5B1274FA5AC00865F81 /* ItemViewModel.swift */; };
 		8673F6F72747AB340083C126 /* MyShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8673F6F62747AB340083C126 /* MyShopApp.swift */; };
 		8673F6F92747AB340083C126 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8673F6F82747AB340083C126 /* AnimationView.swift */; };
 		8673F6FB2747AB350083C126 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8673F6FA2747AB350083C126 /* Assets.xcassets */; };
@@ -34,6 +40,12 @@
 		8660C59F274D2A6600865F81 /* CustomTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfield.swift; sourceTree = "<group>"; };
 		8660C5A1274D2AF200865F81 /* CustomButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonModifier.swift; sourceTree = "<group>"; };
 		8660C5A3274D2BBF00865F81 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		8660C5A6274E8C9E00865F81 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		8660C5A9274E8EA600865F81 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		8660C5AB274F9B5900865F81 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		8660C5AD274FA1E900865F81 /* xMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xMarkButton.swift; sourceTree = "<group>"; };
+		8660C5AF274FA39600865F81 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		8660C5B1274FA5AC00865F81 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		8673F6F32747AB340083C126 /* MyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8673F6F62747AB340083C126 /* MyShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShopApp.swift; sourceTree = "<group>"; };
 		8673F6F82747AB340083C126 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
@@ -62,6 +74,7 @@
 				8660C5972747C56C00865F81 /* AccountView.swift */,
 				8660C59D274D2A0000865F81 /* LoginView.swift */,
 				8660C5A3274D2BBF00865F81 /* AuthenticationView.swift */,
+				8660C5AB274F9B5900865F81 /* ItemDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -73,8 +86,27 @@
 				8660C599274B9D0F00865F81 /* SearchBar.swift */,
 				8660C59F274D2A6600865F81 /* CustomTextfield.swift */,
 				8660C5A1274D2AF200865F81 /* CustomButtonModifier.swift */,
+				8660C5AD274FA1E900865F81 /* xMarkButton.swift */,
+				8660C5AF274FA39600865F81 /* AddButton.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8660C5A5274E8C8200865F81 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8660C5A6274E8C9E00865F81 /* ItemModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8660C5A8274E8E6D00865F81 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8660C5A9274E8EA600865F81 /* CartViewModel.swift */,
+				8660C5B1274FA5AC00865F81 /* ItemViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		8673F6EA2747AB340083C126 = {
@@ -96,6 +128,8 @@
 		8673F6F52747AB340083C126 /* MyShop */ = {
 			isa = PBXGroup;
 			children = (
+				8660C5A5274E8C8200865F81 /* Models */,
+				8660C5A8274E8E6D00865F81 /* ViewModels */,
 				8660C59B274BBC8400865F81 /* Views */,
 				8660C59C274BC78A00865F81 /* Helpers */,
 				8673F6F62747AB340083C126 /* MyShopApp.swift */,
@@ -184,14 +218,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8660C5AC274F9B5900865F81 /* ItemDetailView.swift in Sources */,
+				8660C5A7274E8C9E00865F81 /* ItemModel.swift in Sources */,
 				8660C5A0274D2A6600865F81 /* CustomTextfield.swift in Sources */,
 				8660C5962747C56300865F81 /* CartView.swift in Sources */,
+				8660C5AA274E8EA600865F81 /* CartViewModel.swift in Sources */,
+				8660C5B2274FA5AC00865F81 /* ItemViewModel.swift in Sources */,
 				8660C5A4274D2BBF00865F81 /* AuthenticationView.swift in Sources */,
 				8660C5942747C55800865F81 /* CatalogueView.swift in Sources */,
 				8673F6F92747AB340083C126 /* AnimationView.swift in Sources */,
 				8660C59E274D2A0000865F81 /* LoginView.swift in Sources */,
 				8660C5922747C52800865F81 /* MainView.swift in Sources */,
 				8660C5A2274D2AF200865F81 /* CustomButtonModifier.swift in Sources */,
+				8660C5AE274FA1E900865F81 /* xMarkButton.swift in Sources */,
+				8660C5B0274FA39600865F81 /* AddButton.swift in Sources */,
 				8660C5982747C56C00865F81 /* AccountView.swift in Sources */,
 				8660C59A274B9D0F00865F81 /* SearchBar.swift in Sources */,
 				8673F6F72747AB340083C126 /* MyShopApp.swift in Sources */,

@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MyShopApp: App {
+    
+    var items = CartViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            AnimationView()
+            AnimationView().environmentObject(items)
         }
     }
 }

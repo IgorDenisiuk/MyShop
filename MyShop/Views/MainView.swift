@@ -8,40 +8,45 @@
 import SwiftUI
 
 struct MainView: View {
-    
+   
     let items = Array(1...100).map { "Item \($0)" }
+    
     let layout = [
         GridItem(.flexible()),
-        GridItem(.flexible())
+        GridItem(.flexible()),
     ]
     
     @State private var searchText = ""
     @State private var isSearching = false
+    @State private var isShowingDetail = false
     
     var body: some View {
-        ZStack {
-            Color("brandColorGray")
-                .ignoresSafeArea()
+        VStack {
+            SearchBar(searchText: $searchText, isSearching: $isSearching)
             
-            VStack {
-                SearchBar(searchText: $searchText, isSearching: $isSearching)
-                
-                Spacer()
-                
-                ScrollView(.vertical) {
-                    LazyVGrid(columns: layout, alignment: .center, spacing: 20) {
-                        ForEach((items).filter({ "\($0)".contains(searchText) || searchText.isEmpty}), id: \.self) { item in
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 25, style: .continuous)
-                                                .fill(Color.white)
-                                                .frame(width: 170, height: 200)
-
-                                Text(item)
-                            }
+            Spacer()
+            
+            ScrollView(.vertical) {
+                LazyVGrid(columns: layout, alignment: .center, spacing: 20) {
+                    ForEach((items).filter({ "\($0)".contains(searchText) || searchText.isEmpty}), id: \.self) { item in
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 25, style: .continuous)
+                                .fill(Color.gray)
+                                .frame(width: 170, height: 200)
+                            
+                            Text(item)
+                        }
+                        .onTapGesture {
+                            isShowingDetail = true
                         }
                     }
                 }
             }
+        }
+        .blur(radius: isShowingDetail ? 20 : 0)
+        
+        if isShowingDetail {
+           
         }
     }
 }
