@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct ItemModel: Hashable {
+struct ItemModel {
     let id: Int
     let itemName: String
     let itemDetail: String

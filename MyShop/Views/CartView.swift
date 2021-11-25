@@ -9,17 +9,22 @@ import SwiftUI
 
 struct CartView: View {
     
-    @EnvironmentObject var items: CartViewModel
+    @EnvironmentObject var cart: CartViewModel
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(items.items) { item in
-                    
+                ForEach(cart.items) { item in
+                    ItemCell(item: item)
                 }
+                .onDelete(perform: delete)
             }
             .navigationBarTitle("Cart")
         }
+    }
+    
+    func delete(indexSet: IndexSet) {
+        cart.items.remove(atOffsets: indexSet)
     }
 }
 

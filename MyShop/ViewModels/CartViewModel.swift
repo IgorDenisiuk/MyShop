@@ -8,6 +8,6 @@
 import Foundation
 import SwiftUI
 
-class CartViewModel: ObservableObject, Identifiable {
+class CartViewModel: ObservableObject {
     @Published var items: [ItemViewModel] = []
 }
