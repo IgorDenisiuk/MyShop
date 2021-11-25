@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemDetailView: View {
     
-    @State var item: ItemViewModel
+    @State var item = ItemViewModel(item: MockData.sampleItem)
     @Binding var isShowingDetail: Bool
     
     var body: some View {
