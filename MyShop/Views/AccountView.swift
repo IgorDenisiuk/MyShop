@@ -8,13 +8,39 @@
 import SwiftUI
 
 struct AccountView: View {
+    
+    @State private var firstName  = ""
+    @State private var lastName   = ""
+    @State private var email      = ""
+    @State private var birthdate  = Date()
+    
     var body: some View {
         NavigationView {
-            NavigationLink(destination: LoginView()) {
+            VStack {
                 
-                Text("Log In")
-                    .modifier(CustomButtonModifier())
+                Spacer()
+                
+                AccountImage()
+                
+                Form {
+                    Section(header: Text ("Personal Info")) {
+                        TextField("First Name", text: $firstName)
+                        TextField("Last Name", text: $lastName)
+                        TextField("email", text: $email)
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                        DatePicker("Birthday", selection: $birthdate, displayedComponents: .date)
+                    }
+                }
+                
+                NavigationLink(destination: LoginView()) {
+                    Text("Log In")
+                        .modifier(CustomButtonModifier())
+                }
+                Spacer()
             }
+            
             .navigationBarTitle("Account")
         }
     }

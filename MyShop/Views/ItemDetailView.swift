@@ -14,8 +14,12 @@ struct ItemDetailView: View {
     
     var body: some View {
         VStack {
-            
-            xMarkButton(isShowingDetail: $isShowingDetail)
+            ZStack(alignment: .top) {
+                Rectangle()
+                    .frame(width: 350, height: 300)
+                
+                xMarkButton(isShowingDetail: $isShowingDetail)
+            }
             
             Spacer()
             
