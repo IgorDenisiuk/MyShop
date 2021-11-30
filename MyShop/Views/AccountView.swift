@@ -11,6 +11,7 @@ struct AccountView: View {
     
     @ObservedObject var viewModel = AccountViewModel()
     @State private var birthdate  = Date()
+    @State private var showingLogin = false
     
     var body: some View {
         NavigationView {
@@ -32,16 +33,29 @@ struct AccountView: View {
                     }
                 }
                 
-                NavigationLink(destination: LoginView()) {
-                    Text("Log In")
-                        .modifier(CustomButtonModifier())
+                Button{
+                    self.showingLogin.toggle()
+                } label: {
+                    HStack(spacing: 10) {
+                        Text("LOG IN")
+                            .fontWeight(.heavy)
+                        
+                        Image(systemName: "arrow.right")
+                            .font(.title2)
+                    }
+                    .modifier(CustomButtonModifier())
+                    .sheet(isPresented: $showingLogin) {
+                        LoginView(showingLogin: $showingLogin)
+                    }
                 }
+                
                 Spacer()
+                
             }
             .navigationBarTitle("Account")
-            .onAppear {
-                viewModel.retrieveUser()
-            }
+        }
+        .onAppear {
+            viewModel.retrieveUser()
         }
     }
 }

@@ -46,7 +46,6 @@ struct CustomTextfield: View {
                             SecureField("", text: $value)
                         } else {
                             TextField("", text: $value)
-                                .keyboardType(title == "PHONE NUMBER" ? .numberPad : .default)
                         }
                     }
                 }
@@ -68,3 +67,9 @@ struct CustomTextfield: View {
     }
 }
 
+struct ACustomTextfield_Previews: PreviewProvider {
+    @Namespace static var  animation
+    static var previews: some View {
+        CustomTextfield(image: "person", title: "FIRST NAME", value: .constant("false"), animation: animation)
+    }
+}

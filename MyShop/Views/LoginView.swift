@@ -9,11 +9,23 @@ import SwiftUI
 
 struct LoginView: View {
     @ObservedObject var viewModel = AccountViewModel()
-    @State var show = false
+    @State private var showingAuth = false
+    @Binding var showingLogin: Bool
     @Namespace var animation
     
     var body: some View {
         VStack {
+            HStack {
+                Button{showingLogin.toggle()} label: {
+                    Image(systemName: "arrow.left")
+                        .font(.largeTitle)
+                        .foregroundColor(.gray)
+                }
+                
+                Spacer()
+            }
+            .padding()
+            .padding(.leading)
             HStack {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Login")
@@ -30,7 +42,10 @@ struct LoginView: View {
             .padding(.leading)
             
             CustomTextfield(image: "envelope", title: "EMAIL", value: $viewModel.user.email, animation: animation)
+                .autocapitalization(.none)
+                .foregroundColor(Color("brandColor"))
             CustomTextfield(image: "lock", title: "PASSWORD", value: $viewModel.user.password, animation: animation)
+                .foregroundColor(Color("brandColor"))
                 .padding(.top, 5)
             
             HStack {
@@ -38,18 +53,18 @@ struct LoginView: View {
                 Spacer(minLength: 0)
                 
                 VStack(alignment: .trailing, spacing: 20) {
-                    NavigationLink(
-                        destination: AccountView(),
-                        label: {
-                            HStack(spacing: 10) {
-                                Text("LOGIN")
-                                    .fontWeight(.heavy)
-                                
-                                Image(systemName: "arrow.right")
-                                    .font(.title2)
-                            }
-                            .modifier(CustomButtonModifier())
-                        })
+                    Button {
+                        showingLogin.toggle()
+                    } label: {
+                        HStack(spacing: 10) {
+                            Text("LOGIN")
+                                .fontWeight(.heavy)
+                            
+                            Image(systemName: "arrow.right")
+                                .font(.title2)
+                        }
+                        .modifier(CustomButtonModifier())
+                    }
                 }
             }
         }
@@ -64,11 +79,17 @@ struct LoginView: View {
                 .fontWeight(.heavy)
                 .foregroundColor(.gray)
             
-            NavigationLink(destination: AuthenticationView(show: $show), isActive: $show) {
-                
-                Text("sign up")
-                    .fontWeight(.heavy)
-                    .foregroundColor(Color("brandColor"))
+            Button{
+                self.showingAuth.toggle()
+            } label: {
+                HStack(spacing: 10) {
+                    Text("sign up")
+                        .fontWeight(.heavy)
+                        .foregroundColor(Color("brandColor"))
+                }
+                .sheet(isPresented: $showingAuth) {
+                    AuthenticationView(showingAuth: $showingAuth, showingLogin: $showingLogin)
+                }
             }
         }
         .padding()
@@ -80,6 +101,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(showingLogin: .constant(false))
     }
 }

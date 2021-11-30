@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct AuthenticationView: View {
+    
     @StateObject var viewModel = AccountViewModel()
-    
-    @Binding var show: Bool
-    
+    @Binding var showingAuth: Bool
+    @Binding var showingLogin: Bool
     @Namespace var animation
     
     var body: some View {
@@ -19,7 +19,7 @@ struct AuthenticationView: View {
             
             VStack {
                 HStack {
-                    Button{show.toggle()} label: {
+                    Button{showingAuth.toggle()} label: {
                         Image(systemName: "arrow.left")
                             .font(.largeTitle)
                             .foregroundColor(.gray)
@@ -42,18 +42,22 @@ struct AuthenticationView: View {
                 .padding(.leading)
                 
                 CustomTextfield(image: "person", title: "FIRST NAME", value: $viewModel.user.firstName, animation: animation)
+                    .foregroundColor(Color("brandColor"))
                 CustomTextfield(image: "person.2", title: "SECOND NAME", value: $viewModel.user.secondName, animation: animation)
+                    .foregroundColor(Color("brandColor"))
                     .padding(.top, 5)
                 CustomTextfield(image: "envelope", title: "EMAIL", value: $viewModel.user.email, animation: animation)
+                    .foregroundColor(Color("brandColor"))
                     .padding(.top, 5)
+                    .autocapitalization(.none)
                 CustomTextfield(image: "lock", title: "PASSWORD", value: $viewModel.user.password, animation: animation)
-              
+                    .foregroundColor(Color("brandColor"))
+                
                 HStack {
                     Spacer()
                     
                     Button{
                         viewModel.saveChages()
-                        
                     } label: {
                         HStack(spacing: 10) {
                             Text("SIGN UP")
@@ -74,16 +78,16 @@ struct AuthenticationView: View {
                         .fontWeight(.heavy)
                         .foregroundColor(.gray)
                     
-                    NavigationLink(
-                        destination: LoginView(),
-                        label: {
-                            Text("sign in")
-                                .fontWeight(.heavy)
-                                .foregroundColor(Color("brandColor"))
-                        })
+                    Button {
+                        showingAuth.toggle()
+                    } label: {
+                        Text("sign in")
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color("brandColor"))
+                    }
                 }
                 .padding()
-                .padding(.top, 90)
+                .padding(.top, 100)
             }
         })
         .navigationBarHidden(true)
@@ -91,3 +95,8 @@ struct AuthenticationView: View {
     }
 }
 
+struct AuthenticationView_Previews: PreviewProvider {
+    static var previews: some View {
+        AuthenticationView(showingAuth: .constant(false), showingLogin: .constant(false))
+    }
+}
