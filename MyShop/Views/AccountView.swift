@@ -9,9 +9,7 @@ import SwiftUI
 
 struct AccountView: View {
     
-    @State private var firstName  = ""
-    @State private var lastName   = ""
-    @State private var email      = ""
+    @ObservedObject var viewModel = AccountViewModel()
     @State private var birthdate  = Date()
     
     var body: some View {
@@ -24,9 +22,9 @@ struct AccountView: View {
                 
                 Form {
                     Section(header: Text ("Personal Info")) {
-                        TextField("First Name", text: $firstName)
-                        TextField("Last Name", text: $lastName)
-                        TextField("email", text: $email)
+                        TextField("First Name", text: $viewModel.user.firstName)
+                        TextField("Last Name", text: $viewModel.user.secondName)
+                        TextField("email", text: $viewModel.user.email)
                             .keyboardType(.emailAddress)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
@@ -40,8 +38,10 @@ struct AccountView: View {
                 }
                 Spacer()
             }
-            
             .navigationBarTitle("Account")
+            .onAppear {
+                viewModel.retrieveUser()
+            }
         }
     }
 }

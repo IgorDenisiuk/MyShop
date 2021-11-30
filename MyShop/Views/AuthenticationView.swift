@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct AuthenticationView: View {
-    @State var email = ""
-    @State var password = ""
-    @State var name = ""
-    @State var number = ""
+    @StateObject var viewModel = AccountViewModel()
     
     @Binding var show: Bool
     
@@ -44,18 +41,20 @@ struct AuthenticationView: View {
                 .padding()
                 .padding(.leading)
                 
-                CustomTextfield(image: "person", title: "FULL NAME", value: $name, animation: animation)
-                CustomTextfield(image: "envelope", title: "EMAIL", value: $email, animation: animation)
+                CustomTextfield(image: "person", title: "FIRST NAME", value: $viewModel.user.firstName, animation: animation)
+                CustomTextfield(image: "person.2", title: "SECOND NAME", value: $viewModel.user.secondName, animation: animation)
                     .padding(.top, 5)
-                CustomTextfield(image: "lock", title: "PASSWORD", value: $password, animation: animation)
+                CustomTextfield(image: "envelope", title: "EMAIL", value: $viewModel.user.email, animation: animation)
                     .padding(.top, 5)
-                CustomTextfield(image: "phone.fill", title: "PHONE NUMBER", value: $number, animation: animation)
-                    .padding(.top, 5)
-                
+                CustomTextfield(image: "lock", title: "PASSWORD", value: $viewModel.user.password, animation: animation)
+              
                 HStack {
                     Spacer()
                     
-                    Button{} label: {
+                    Button{
+                        viewModel.saveChages()
+                        
+                    } label: {
                         HStack(spacing: 10) {
                             Text("SIGN UP")
                                 .fontWeight(.heavy)
@@ -75,14 +74,16 @@ struct AuthenticationView: View {
                         .fontWeight(.heavy)
                         .foregroundColor(.gray)
                     
-                    Button{} label: {
-                        Text("sign in")
-                            .fontWeight(.heavy)
-                            .foregroundColor(Color("brandColor"))
-                    }
+                    NavigationLink(
+                        destination: LoginView(),
+                        label: {
+                            Text("sign in")
+                                .fontWeight(.heavy)
+                                .foregroundColor(Color("brandColor"))
+                        })
                 }
                 .padding()
-                .padding(.top, 10)
+                .padding(.top, 90)
             }
         })
         .navigationBarHidden(true)
