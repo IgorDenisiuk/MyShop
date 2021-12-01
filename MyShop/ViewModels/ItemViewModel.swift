@@ -10,15 +10,15 @@ import SwiftUI
 
 class ItemViewModel: Identifiable, ObservableObject {
     
-    let id: Int
     let itemName: String
     let itemDetail: String
     let itemPrice: Double
+    let itemImage: String
     
     init(item: ItemModel) {
-        self.id = item.id
         self.itemName = item.itemName
         self.itemDetail = item.itemDetail
         self.itemPrice = item.itemPrice
+        self.itemImage = item.itemImage
     }
 }

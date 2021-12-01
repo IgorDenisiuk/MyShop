@@ -13,14 +13,11 @@ final class AccountViewModel: ObservableObject {
     @Published var user = UserModel()
     
     func saveChages() {
-        //guard isValidForm else { return }
-        
         do {
             let data = try JSONEncoder().encode(user)
             userData = data
-            //alertItem = AlertContext.userSaveSuccess
         } catch {
-            //alertItem = AlertContext.invalidUserData
+            print("error")
         }
     }
     
@@ -30,7 +27,7 @@ final class AccountViewModel: ObservableObject {
         do {
             user = try JSONDecoder().decode(UserModel.self, from: userData)
         } catch {
-            //alertItem = AlertContext.invalidUserData
+            print("error")
         }
     }
 }

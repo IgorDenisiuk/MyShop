@@ -12,7 +12,7 @@ struct ItemCell: View {
     
     var body: some View {
         HStack {
-            Image("adidas")
+            Image(item.itemImage)
                 .resizable()
                 .frame(width: 50, height: 50)
                 .shadow(radius: 5)

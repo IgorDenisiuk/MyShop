@@ -30,7 +30,6 @@ struct EmptyState: View {
                     .foregroundColor(.secondary)
                     .padding()
             }
-                
         }
     }
 }

@@ -25,7 +25,7 @@ struct CartView: View {
                     Button {
                         print("order placed")
                     } label: {
-                        Text("$\(cart.totalPrice, specifier: "%.2f") - Place Order")
+                        Text("$\(cart.totalPrice, specifier: "%.2f") - Заказать")
                             .font(.title2)
                             .fontWeight(.bold)
                             .foregroundColor(.white)

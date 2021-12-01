@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CatalogueView: View {
     
-    var catalogue = ["Женщинам", "Мужчинам", "Детям", "Обувь", "Аксессуары", "Электроника", "Премиум", "Бытовая техника", "Книги", "Спорт", "Красота", "Игрушки", "Сад и дача", "Зоотовары", "Канцтовары", "Для ремонта", "Дом", "Автотовары", "Бренды", "Акции",]
+    var catalogue = CatalogueModel()
     
     @State private var searchText = ""
     @State private var isSearching = false
@@ -22,7 +22,7 @@ struct CatalogueView: View {
                 Spacer()
                 
                 List {
-                    ForEach ((catalogue).filter({ "\($0)".contains(searchText) || searchText.isEmpty}), id: \.self) { item in
+                    ForEach ((catalogue.catalogue).filter({ "\($0)".contains(searchText) || searchText.isEmpty}), id: \.self) { item in
                         Text(item)
                     }
                 }

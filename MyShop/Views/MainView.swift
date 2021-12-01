@@ -9,12 +9,9 @@ import SwiftUI
 
 struct MainView: View {
     
-    let items = Array(1...100).map { "Item \($0)" }
+    let items = Item()
     
-    let layout = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-    ]
+    let layout = Array(repeating: GridItem(.flexible()), count: 2)
     
     @State private var searchText = ""
     @State private var isSearching = false
@@ -23,28 +20,27 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            VStack {
-                SearchBar(searchText: $searchText, isSearching: $isSearching)
-                
-                Spacer()
-                
-                ScrollView(.vertical) {
-                    LazyVGrid(columns: layout, alignment: .center, spacing: 20) {
-                        ForEach((items).filter({ "\($0)".contains(searchText) || searchText.isEmpty}), id: \.self) { item in
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 25, style: .continuous)
-                                    .fill(Color.gray)
-                                    .frame(width: 170, height: 200)
-                                
-                                Text(item)
-                            }
-                            .onTapGesture {
-                                isShowingDetail = true
+            NavigationView {
+                VStack {
+                    SearchBar(searchText: $searchText, isSearching: $isSearching)
+                        .padding(.top, 10)
+                    
+                    Spacer()
+                    
+                    ScrollView {
+                        LazyVGrid(columns: layout, spacing: 10) {
+                            ForEach((items.items).filter({ "\($0)".contains(searchText) || searchText.isEmpty}), id: \.self) { item in
+                                GridView(item: item)
+                                    .onTapGesture {
+                                        isShowingDetail = true
+                                    }
                             }
                         }
                     }
                 }
                 .disabled(isShowingDetail)
+                .navigationBarTitle("My Shop")
+                .navigationBarTitleDisplayMode(.inline)
             }
             .blur(radius: isShowingDetail ? 20 : 0)
             
@@ -60,4 +56,3 @@ struct MainView_Previews: PreviewProvider {
         MainView()
     }
 }
-

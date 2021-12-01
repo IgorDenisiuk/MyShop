@@ -15,7 +15,7 @@ struct ItemDetailView: View {
     var body: some View {
         VStack {
             ZStack(alignment: .top) {
-                Image("adidas")
+                Image(item.itemImage)
                     .resizable()
                     .frame(width: 350, height: 350)
                 

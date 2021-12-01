@@ -26,6 +26,7 @@ struct AuthenticationView: View {
                     }
                     
                     Spacer()
+                    
                 }
                 .padding()
                 .padding(.leading)
@@ -37,6 +38,7 @@ struct AuthenticationView: View {
                         .foregroundColor(.primary)
                     
                     Spacer(minLength: 0)
+                    
                 }
                 .padding()
                 .padding(.leading)
