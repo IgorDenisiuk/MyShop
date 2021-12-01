@@ -13,10 +13,12 @@ class ItemViewModel: Identifiable, ObservableObject {
     let id: Int
     let itemName: String
     let itemDetail: String
+    let itemPrice: Double
     
     init(item: ItemModel) {
         self.id = item.id
         self.itemName = item.itemName
         self.itemDetail = item.itemDetail
+        self.itemPrice = item.itemPrice
     }
 }

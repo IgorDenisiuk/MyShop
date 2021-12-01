@@ -15,8 +15,9 @@ struct ItemDetailView: View {
     var body: some View {
         VStack {
             ZStack(alignment: .top) {
-                Rectangle()
-                    .frame(width: 350, height: 300)
+                Image("adidas")
+                    .resizable()
+                    .frame(width: 350, height: 350)
                 
                 xMarkButton(isShowingDetail: $isShowingDetail)
             }
@@ -32,9 +33,13 @@ struct ItemDetailView: View {
                 .font(.title3)
                 .foregroundColor(.secondary)
             
+            Text("\(item.itemPrice, specifier: "%.2f") $")
+                .font(.title2)
+                .padding()
+            
             Spacer()
             
-            AddButton(item: item, isShowingDetail: $isShowingDetail)
+            AddButton(item: item, isShowingDetail: $isShowingDetail, buttonTitle: "Add Item to Cart")
         }
         .frame(width: 350, height: 650)
         .background(Color(.systemBackground))

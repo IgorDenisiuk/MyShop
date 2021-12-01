@@ -59,7 +59,7 @@ struct AuthenticationView: View {
                     Button{
                         viewModel.saveChages()
                     } label: {
-                        HStack(spacing: 10) {
+                        HStack() {
                             Text("SIGN UP")
                                 .fontWeight(.heavy)
                             
@@ -87,7 +87,7 @@ struct AuthenticationView: View {
                     }
                 }
                 .padding()
-                .padding(.top, 100)
+                .padding(.top, 120)
             }
         })
         .navigationBarHidden(true)

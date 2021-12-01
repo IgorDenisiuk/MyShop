@@ -13,11 +13,31 @@ struct CartView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(cart.items) { item in
-                    ItemCell(item: item)
+            ZStack {
+                VStack {
+                    List {
+                        ForEach(cart.items) { item in
+                            ItemCell(item: item)
+                        }
+                        .onDelete(perform: delete)
+                    }
+                    
+                    Button {
+                        print("order placed")
+                    } label: {
+                        Text("$\(cart.totalPrice, specifier: "%.2f") - Place Order")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity, maxHeight: 50)
+                            .background(Color("brandColor"))
+                            .cornerRadius(12)
+                    }
+                    .padding()
                 }
-                .onDelete(perform: delete)
+                if cart.items.isEmpty {
+                    EmptyState(imageName: "emptyOrder", message: "You have no items in your cart. Please add some items.")
+                }
             }
             .navigationBarTitle("Cart")
         }

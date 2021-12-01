@@ -12,7 +12,7 @@ struct ItemCell: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "tray.and.arrow.down.fill")
+            Image("adidas")
                 .resizable()
                 .frame(width: 50, height: 50)
                 .shadow(radius: 5)
@@ -25,6 +25,12 @@ struct ItemCell: View {
                     .font(.footnote)
                     .foregroundColor(.gray)
             }
+            
+            Spacer()
+            
+            Text("\(item.itemPrice, specifier: "%.2f") $")
+                .font(.caption)
+                .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: 25, alignment: .leading)
         .padding()

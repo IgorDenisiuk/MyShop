@@ -28,7 +28,7 @@ struct LoginView: View {
             .padding(.leading)
             HStack {
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("Login")
+                    Text("Log in")
                         .font(.system(size: 40, weight: .heavy))
                         .foregroundColor(.primary)
                     
@@ -57,7 +57,7 @@ struct LoginView: View {
                         showingLogin.toggle()
                     } label: {
                         HStack(spacing: 10) {
-                            Text("LOGIN")
+                            Text("LOG IN")
                                 .fontWeight(.heavy)
                             
                             Image(systemName: "arrow.right")
@@ -67,10 +67,9 @@ struct LoginView: View {
                     }
                 }
             }
+            .padding()
         }
-        .padding()
         .padding(.top, 10)
-        .padding(.trailing)
         
         Spacer(minLength: 0)
         
