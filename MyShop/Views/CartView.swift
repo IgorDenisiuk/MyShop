@@ -21,19 +21,7 @@ struct CartView: View {
                         }
                         .onDelete(perform: delete)
                     }
-                    
-                    Button {
-                        print("order placed")
-                    } label: {
-                        Text("$\(cart.totalPrice, specifier: "%.2f") - Заказать")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity, maxHeight: 50)
-                            .background(Color("brandColor"))
-                            .cornerRadius(12)
-                    }
-                    .padding()
+                    AddToShopButton()
                 }
                 if cart.items.isEmpty {
                     EmptyState(imageName: "emptyOrder", message: "You have no items in your cart. Please add some items.")
