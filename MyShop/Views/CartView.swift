@@ -16,7 +16,7 @@ struct CartView: View {
             ZStack {
                 VStack {
                     List {
-                        ForEach(cart.items) { item in
+                        ForEach(cart.items, id: \.self) { item in
                             ItemCell(item: item)
                         }
                         .onDelete(perform: delete)

@@ -36,6 +36,13 @@ struct Item {
                       ItemModel(itemName: "Adidas",  itemDetail: "EQT",  itemPrice: 79.99, itemImage: "adidas2"),
                       ItemModel(itemName: "Adidas", itemDetail: "EQT", itemPrice: 69.99, itemImage: "adidasEqt"),
                       ItemModel(itemName: "Nike", itemDetail: "AirMax", itemPrice: 79.99, itemImage: "nikeAir"),
+                      ItemModel(itemName: "Nike", itemDetail: "Air", itemPrice: 89.99, itemImage: "nike"),
+                      ItemModel(itemName: "Adidas", itemDetail: "EQT", itemPrice: 69.99, itemImage: "adidasEqt"),
+                      ItemModel(itemName: "Adidas",  itemDetail: "EQT",  itemPrice: 79.99, itemImage: "adidas1"),
+                      ItemModel(itemName: "Adidas", itemDetail: "EQT", itemPrice: 69.99, itemImage: "adidasSuperStar"),
+                      ItemModel(itemName: "Adidas",  itemDetail: "EQT",  itemPrice: 79.99, itemImage: "adidas2"),
+                      ItemModel(itemName: "Adidas", itemDetail: "EQT", itemPrice: 69.99, itemImage: "adidasEqt"),
+                      ItemModel(itemName: "Nike", itemDetail: "AirMax", itemPrice: 79.99, itemImage: "nikeAir"),
                       ItemModel(itemName: "Nike", itemDetail: "Air", itemPrice: 89.99, itemImage: "nike")
     ]
 }

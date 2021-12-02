@@ -16,7 +16,7 @@ struct MainView: View {
     @State private var searchText = ""
     @State private var isSearching = false
     @State private var isShowingDetail = false
-    @State private var selectedItem = ItemViewModel(item: MockData.sampleItem)
+    @State private var selectedItem: ItemModel?
     
     var body: some View {
         ZStack {
@@ -32,6 +32,7 @@ struct MainView: View {
                             ForEach((items.items).filter({ "\($0)".contains(searchText) || searchText.isEmpty}), id: \.self) { item in
                                 GridView(item: item)
                                     .onTapGesture {
+                                        selectedItem = item
                                         isShowingDetail = true
                                     }
                             }
@@ -45,7 +46,7 @@ struct MainView: View {
             .blur(radius: isShowingDetail ? 20 : 0)
             
             if isShowingDetail {
-                ItemDetailView(item: selectedItem, isShowingDetail: $isShowingDetail)
+                ItemDetailView(item: selectedItem!, isShowingDetail: $isShowingDetail)
             }
         }
     }

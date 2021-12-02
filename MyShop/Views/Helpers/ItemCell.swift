@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ItemCell: View {
-    @ObservedObject var item: ItemViewModel
+    @State var item: ItemModel
     
     var body: some View {
         HStack {
@@ -39,6 +39,6 @@ struct ItemCell: View {
 
 struct ItemCell_Previews: PreviewProvider {
     static var previews: some View {
-        ItemCell(item: ItemViewModel(item: MockData.sampleItem))
+        ItemCell(item: MockData.sampleItem)
     }
 }

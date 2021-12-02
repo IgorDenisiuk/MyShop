@@ -10,7 +10,7 @@ import SwiftUI
 struct AddButton: View {
     
     @EnvironmentObject var cartItem: CartViewModel
-    @State var item: ItemViewModel
+    @State var item: ItemModel
     @Binding var isShowingDetail: Bool
     @State var buttonTitle: String
     
@@ -34,6 +34,6 @@ struct AddButton: View {
 
 struct AddButton_Previews: PreviewProvider {
     static var previews: some View {
-        AddButton(item: ItemViewModel(item: MockData.sampleItem), isShowingDetail: .constant(false), buttonTitle: "Add Item to Cart")
+        AddButton(item: MockData.sampleItem, isShowingDetail: .constant(false), buttonTitle: "Add Item to Cart")
     }
 }

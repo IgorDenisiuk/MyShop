@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemDetailView: View {
     
-    @State var item = ItemViewModel(item: MockData.sampleItem)
+    @State var item: ItemModel
     @Binding var isShowingDetail: Bool
     
     var body: some View {
@@ -24,7 +24,7 @@ struct ItemDetailView: View {
             
             Spacer()
             
-            Text(item.itemName)
+            Text(verbatim: item.itemName)
                 .fontWeight(.semibold)
                 .font(.title)
                 .padding()
@@ -50,6 +50,6 @@ struct ItemDetailView: View {
 
 struct ItemDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemDetailView(item: ItemViewModel(item: MockData.sampleItem), isShowingDetail: .constant(true))
+        ItemDetailView(item: MockData.sampleItem, isShowingDetail: .constant(true))
     }
 }
