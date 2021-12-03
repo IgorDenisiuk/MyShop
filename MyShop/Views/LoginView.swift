@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    
     @ObservedObject var viewModel = AccountViewModel()
     @State private var showingAuth = false
     @Binding var showingLogin: Bool
