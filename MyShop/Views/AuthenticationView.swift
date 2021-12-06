@@ -43,9 +43,9 @@ struct AuthenticationView: View {
                 .padding()
                 .padding(.leading)
                 
-                CustomTextfield(image: "person", title: "FIRST NAME", value: $viewModel.user.firstName, animation: animation)
+                CustomTextfield(image: "person", title: "FULL NAME", value: $viewModel.user.fullName, animation: animation)
                     .foregroundColor(Color("brandColor"))
-                CustomTextfield(image: "person.2", title: "SECOND NAME", value: $viewModel.user.secondName, animation: animation)
+                CustomTextfield(image: "calendar", title: "BIRTH DATE", value: $viewModel.user.birthdate, animation: animation)
                     .foregroundColor(Color("brandColor"))
                     .padding(.top, 5)
                 CustomTextfield(image: "envelope", title: "EMAIL", value: $viewModel.user.email, animation: animation)
@@ -60,6 +60,8 @@ struct AuthenticationView: View {
                     
                     Button{
                         viewModel.saveChages()
+                        showingAuth.toggle()
+                        showingLogin.toggle()
                     } label: {
                         HStack() {
                             Text("SIGN UP")
@@ -75,6 +77,8 @@ struct AuthenticationView: View {
                 .padding(.top)
                 .padding(.trailing)
                 
+                Spacer(minLength: 70)
+                
                 HStack {
                     Text("Already have an account?")
                         .fontWeight(.heavy)
@@ -89,7 +93,6 @@ struct AuthenticationView: View {
                     }
                 }
                 .padding()
-                .padding(.top, 120)
             }
         })
         .navigationBarHidden(true)

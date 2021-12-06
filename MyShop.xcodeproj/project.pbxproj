@@ -27,6 +27,8 @@
 		8660C5B82750C64F00865F81 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8660C5B72750C64F00865F81 /* ImagePicker.swift */; };
 		8662A2702757AFAD00CA7C52 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A26F2757AFAD00CA7C52 /* GridView.swift */; };
 		8662A2742758C79300CA7C52 /* AddToShopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A2732758C79300CA7C52 /* AddToShopButton.swift */; };
+		8662A276275A1DD900CA7C52 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A275275A1DD900CA7C52 /* LoadingView.swift */; };
+		8662A278275E197E00CA7C52 /* AccountTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A277275E197E00CA7C52 /* AccountTextfield.swift */; };
 		8673F6F72747AB340083C126 /* MyShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8673F6F62747AB340083C126 /* MyShopApp.swift */; };
 		8673F6F92747AB340083C126 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8673F6F82747AB340083C126 /* AnimationView.swift */; };
 		8673F6FB2747AB350083C126 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8673F6FA2747AB350083C126 /* Assets.xcassets */; };
@@ -58,6 +60,8 @@
 		8660C5B72750C64F00865F81 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		8662A26F2757AFAD00CA7C52 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		8662A2732758C79300CA7C52 /* AddToShopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToShopButton.swift; sourceTree = "<group>"; };
+		8662A275275A1DD900CA7C52 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		8662A277275E197E00CA7C52 /* AccountTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTextfield.swift; sourceTree = "<group>"; };
 		8673F6F32747AB340083C126 /* MyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8673F6F62747AB340083C126 /* MyShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyShopApp.swift; sourceTree = "<group>"; };
 		8673F6F82747AB340083C126 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
@@ -91,7 +95,6 @@
 				8660C59D274D2A0000865F81 /* LoginView.swift */,
 				8660C5A3274D2BBF00865F81 /* AuthenticationView.swift */,
 				8660C5AB274F9B5900865F81 /* ItemDetailView.swift */,
-				8660C59C274BC78A00865F81 /* Helpers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -111,6 +114,8 @@
 				867BE01227577A78009AAC30 /* EmptyState.swift */,
 				8662A26F2757AFAD00CA7C52 /* GridView.swift */,
 				8662A2732758C79300CA7C52 /* AddToShopButton.swift */,
+				8662A275275A1DD900CA7C52 /* LoadingView.swift */,
+				8662A277275E197E00CA7C52 /* AccountTextfield.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 				8660C5A5274E8C8200865F81 /* Models */,
 				8660C5A8274E8E6D00865F81 /* ViewModels */,
 				8660C59B274BBC8400865F81 /* Views */,
+				8660C59C274BC78A00865F81 /* Helpers */,
 				8673F6F62747AB340083C126 /* MyShopApp.swift */,
 				8660C58F2747B49F00865F81 /* RootView.swift */,
 				8673F6FA2747AB350083C126 /* Assets.xcassets */,
@@ -250,6 +256,7 @@
 				867BE01327577A78009AAC30 /* EmptyState.swift in Sources */,
 				8660C5B82750C64F00865F81 /* ImagePicker.swift in Sources */,
 				8660C5962747C56300865F81 /* CartView.swift in Sources */,
+				8662A276275A1DD900CA7C52 /* LoadingView.swift in Sources */,
 				8660C5AA274E8EA600865F81 /* CartViewModel.swift in Sources */,
 				8660C5B4274FCA7400865F81 /* ItemCell.swift in Sources */,
 				8660C5A4274D2BBF00865F81 /* AuthenticationView.swift in Sources */,
@@ -268,6 +275,7 @@
 				8660C59A274B9D0F00865F81 /* SearchBar.swift in Sources */,
 				8673F6F72747AB340083C126 /* MyShopApp.swift in Sources */,
 				8660C5902747B49F00865F81 /* RootView.swift in Sources */,
+				8662A278275E197E00CA7C52 /* AccountTextfield.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

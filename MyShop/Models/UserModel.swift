@@ -8,8 +8,8 @@
 import Foundation
 
 struct UserModel: Codable {
-    var firstName    = ""
-    var secondName   = ""
+    var fullName     = ""
     var email        = ""
     var password     = ""
+    var birthdate    = ""
 }

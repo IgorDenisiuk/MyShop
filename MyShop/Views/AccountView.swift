@@ -10,8 +10,8 @@ import SwiftUI
 struct AccountView: View {
     
     @ObservedObject var viewModel = AccountViewModel()
-    @State private var birthdate  = Date()
     @State private var showingLogin = false
+    @State private var showingAlert = false
     
     var body: some View {
         NavigationView {
@@ -23,13 +23,20 @@ struct AccountView: View {
                 
                 Form {
                     Section(header: Text ("Personal Info")) {
-                        TextField("First Name", text: $viewModel.user.firstName)
-                        TextField("Last Name", text: $viewModel.user.secondName)
-                        TextField("email", text: $viewModel.user.email)
-                            .keyboardType(.emailAddress)
-                            .autocapitalization(.none)
-                            .disableAutocorrection(true)
-                        DatePicker("Birthday", selection: $birthdate, displayedComponents: .date)
+                        AccountTextfield(iconName: "person", textfieldName: "Full Name", value: $viewModel.user.fullName)
+                        AccountTextfield(iconName: "envelope", textfieldName: "Email", value: $viewModel.user.email)
+                        AccountTextfield(iconName: "calendar", textfieldName: "Birthday", value: $viewModel.user.birthdate)
+                        
+                        Button {
+                            viewModel.saveChages()
+                            showingAlert.toggle()
+                        } label: {
+                            Text("Сохранить изменения")
+                                .foregroundColor(Color("brandColor"))
+                        }
+                        .alert(isPresented: $showingAlert, content: {
+                            Alert(title: Text(""), message: Text("Ваши изменения сохранены"), dismissButton: .default(Text("OK")))
+                        })
                     }
                 }
                 

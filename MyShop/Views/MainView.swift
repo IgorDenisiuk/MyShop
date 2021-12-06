@@ -17,6 +17,7 @@ struct MainView: View {
     @State private var isSearching = false
     @State private var isShowingDetail = false
     @State private var selectedItem: ItemModel?
+    @State private var isLoading = false
     
     var body: some View {
         ZStack {
@@ -48,6 +49,20 @@ struct MainView: View {
             if isShowingDetail {
                 ItemDetailView(item: selectedItem!, isShowingDetail: $isShowingDetail)
             }
+        
+            if isLoading {
+                LoadingView()
+            }
+        }
+        .onAppear {
+            fakeNetworkCall()
+        }
+    }
+    
+    func fakeNetworkCall() {
+        isLoading = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            isLoading = false
         }
     }
 }

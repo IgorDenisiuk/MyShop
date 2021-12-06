@@ -39,7 +39,7 @@ struct ItemDetailView: View {
             
             Spacer()
             
-            AddButton(item: item, isShowingDetail: $isShowingDetail, buttonTitle: "Add Item to Cart")
+            AddButton(item: item, buttonTitle: "Add Item to Cart", isShowingDetail: $isShowingDetail)
         }
         .frame(width: 350, height: 650)
         .background(Color(.systemBackground))
