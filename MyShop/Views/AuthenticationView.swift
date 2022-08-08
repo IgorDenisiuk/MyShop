@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AuthenticationView: View {
     
-    @StateObject var viewModel = AccountViewModel()
+    @ObservedObject var viewModel = AccountViewModel()
     @Binding var showingAuth: Bool
     @Binding var showingLogin: Bool
     @Namespace var animation
